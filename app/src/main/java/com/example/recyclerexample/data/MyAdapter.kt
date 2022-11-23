@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import coil.transform.CircleCropTransformation
 import com.example.recyclerexample.R
 import com.example.recyclerexample.data.MyAdapter.ViewHolder
 
@@ -25,7 +27,10 @@ class MyAdapter: RecyclerView.Adapter<MyAdapter.ViewHolder>() {
             catColor.text = cat.color
             catAge.text = cat.age.toString()
             catCountry.text = cat.country
-            catFoto.setBackgroundResource(cat.foto)
+//            catFoto.setBackgroundResource(cat.foto)
+            catFoto.load(cat.foto) {
+                transformations(CircleCropTransformation())
+            }
         }
     }
 
